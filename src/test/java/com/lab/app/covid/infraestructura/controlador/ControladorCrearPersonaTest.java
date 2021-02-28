@@ -16,11 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -63,7 +58,7 @@ class ControladorCrearPersonaTest {
         persona.setNombre("William");
         persona.setApellido("Moreno");
         persona.setIdentificacion("1234567");
-        persona.setFechaNacimiento(LocalDateTime.parse("2020-06-13"));
+        persona.setFechaNacimiento("2020-06-13");
 
         mvc.perform(MockMvcRequestBuilders.post("/api/persona")
                 .content(objectMapper.writeValueAsString(persona))
@@ -79,7 +74,7 @@ class ControladorCrearPersonaTest {
         String nombre="Gemelo";
         String apellido="Moreno";
         String identificacion="123451";
-        LocalDateTime fechaNacimiento=LocalDateTime.parse("1998-06-13");
+        String fechaNacimiento="1998-06-13";
 
         personaTestDataBuilder = new PersonaTestDataBuilder(id, nombre, apellido, identificacion, fechaNacimiento);
         persona = personaTestDataBuilder.build();

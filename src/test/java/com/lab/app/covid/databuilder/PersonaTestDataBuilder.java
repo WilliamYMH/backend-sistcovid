@@ -13,13 +13,13 @@ public class PersonaTestDataBuilder {
     private static final String NOMBRE="Gemelo";
     private static final String APELLIDO="Moreno";
     private static final String IDENTIFICACION="0000000";
-    private static final LocalDateTime FECHA_NACIMIENTO=LocalDateTime.parse("1998-06-13");
+    private static final String FECHA_NACIMIENTO="1998-06-13";
 
     private Long id;
     private String nombre;
     private String apellido;
     private String identificacion;
-    private LocalDateTime fechaNacimiento;
+    private String fechaNacimiento;
 
     public PersonaTestDataBuilder() {
         this.id=ID;
@@ -29,7 +29,7 @@ public class PersonaTestDataBuilder {
         this.fechaNacimiento = FECHA_NACIMIENTO;
     }
 
-    public PersonaTestDataBuilder(Long id, String nombre, String apellido, String identificacion, LocalDateTime fechaNacimiento) {
+    public PersonaTestDataBuilder(Long id, String nombre, String apellido, String identificacion, String fechaNacimiento) {
         this.id=id;
         this.nombre = nombre;
         this.apellido = apellido;
