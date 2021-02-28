@@ -1,9 +1,12 @@
 package com.lab.app.covid.infraestructura.persistencia.entidad;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -25,5 +28,6 @@ public class PersonaEntity {
     private String identificacion;
 
     @Column(name="fecha_nacimiento")
-    private Date fechaNacimiento;
+    //@JsonFormat(pattern = "yyyy/MM/dd")
+    private LocalDate fechaNacimiento;
 }

@@ -26,8 +26,19 @@ public class RepositorioPersonaImpl implements RepositorioPersona {
     }
 
     @Override
+    public void actualizarPersona(Persona persona) {
+        PersonaEntity personaEntity = PersonaBuilder.convertirAEntity(persona);
+        personaDao.save(personaEntity);
+    }
+
+    @Override
     public Optional<Persona> obtenerPersonaPorId(Long id) {
         return personaDao.findById(id).map(PersonaBuilder::convertirADominio);
+    }
+
+    @Override
+    public Optional<Persona> obtenerPersonaPorIdentificacion(String identificacion) {
+        return personaDao.findByIdentificacion(identificacion).map(PersonaBuilder::convertirADominio);
     }
 
     @Override

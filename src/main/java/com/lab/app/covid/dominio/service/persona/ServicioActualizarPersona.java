@@ -6,21 +6,23 @@ import com.lab.app.covid.dominio.repositorio.RepositorioPersona;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ServicioCrearPersona {
+public class ServicioActualizarPersona {
 
     private final RepositorioPersona repositorioPersona;
 
-    public ServicioCrearPersona(RepositorioPersona repositorioPersona) {
+    public ServicioActualizarPersona(RepositorioPersona repositorioPersona) {
         this.repositorioPersona = repositorioPersona;
     }
 
-    public Long ejecutar(Persona persona) {
+    public void ejecutar(Persona persona) {
 
         persona.validarfechaNacimiento();
         Persona p = this.repositorioPersona.obtenerPersonaPorIdentificacion(persona.getIdentificacion()).orElse(null);
-        if(p!=null){
+        if(p.getId() != persona.getId() && p!=null){
             throw new PersonaException("Error. Ya se encuentra una persona registrada con la misma identificacion");
         }
-        return this.repositorioPersona.guardarPersona(persona);
+
+        this.repositorioPersona.actualizarPersona(persona);
     }
 }
+

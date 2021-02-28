@@ -11,10 +11,10 @@ public final class PersonaBuilder {
     private PersonaBuilder() {
     }
 
-    public static Persona convertirADominio(PersonaEntity personaEntity) {
+    public static Persona convertirADominio(PersonaEntity personaEntity){
         Persona persona = null;
         if (personaEntity != null) {
-            persona = new Persona(personaEntity.getNombre(), personaEntity.getApellido(), personaEntity.getIdentificacion(), personaEntity.getFechaNacimiento());
+            persona = new Persona(personaEntity.getIdPersona(),personaEntity.getNombre(), personaEntity.getApellido(), personaEntity.getIdentificacion(), personaEntity.getFechaNacimiento().toString());
         }
         return persona;
     }
@@ -24,8 +24,8 @@ public final class PersonaBuilder {
         personaEntity.setNombre(persona.getNombre());
         personaEntity.setApellido(persona.getApellido());
         personaEntity.setIdentificacion(persona.getIdentificacion());
-        personaEntity.setFechaNacimiento(persona.getFechaNacimiento());
-
+        personaEntity.setFechaNacimiento(persona.convertToLocalDateViaInstant());
+        personaEntity.setIdPersona(persona.getId());
         return personaEntity;
     }
 

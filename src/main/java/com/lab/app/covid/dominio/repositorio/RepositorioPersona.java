@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface RepositorioPersona {
 
     Long guardarPersona(Persona persona);
+    void actualizarPersona(Persona persona);
     Optional<Persona> obtenerPersonaPorId(Long id);
+    Optional<Persona> obtenerPersonaPorIdentificacion(String identificacion);
     List<Persona> listarPersonas();
 }
