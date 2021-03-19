@@ -35,7 +35,7 @@ pipeline {
          stage('Compile & Unit Tests') {
              steps{
                 echo "------------>Clean<------------"
-                sh 'gradle --b ./backend-sistcovid/build.gradle clean compileJava'
+                sh 'gradle --b ./build.gradle clean compileJava'
                 echo "------------>Unit Tests<------------"
                 sh 'gradle --b ./build.gradle test'
 
