@@ -34,8 +34,9 @@ pipeline {
          }
          stage('Compile & Unit Tests') {
              steps{
+                sh 'chmod gradlew 500'
                 echo "------------>Clean<------------"
-                sh './gradlew clean compileJava'
+                sh './gradlew clean'
                 echo "------------>Unit Tests<------------"
                 sh './gradlew test'
 
