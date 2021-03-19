@@ -30,11 +30,12 @@ pipeline {
                         url:'https://github.com/WilliamYMH/backend-sistcovid'
                     ]]
                 ])
-                sh 'gradle --b ./backend-sistcovid/build.gradle clean compileJava'
              }
          }
          stage('Compile & Unit Tests') {
              steps{
+                echo "------------>Clean<------------"
+                sh 'gradle --b ./backend-sistcovid/build.gradle clean compileJava'
                 echo "------------>Unit Tests<------------"
                 sh 'gradle --b ./build.gradle test'
 
