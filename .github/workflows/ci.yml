@@ -65,8 +65,6 @@ jobs:
         context: .
         file: ./Dockerfile
         repository: ${{ env.REPO }}
-        tag_with_ref: true
-        tag_with_sha: true
-        tags: "${{ env.REPO }}:${{ github.sha }}"
+        tags: "${{ env.REPO }}:${{ github.sha::8 }}"
         push: true
     
