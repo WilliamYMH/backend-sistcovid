@@ -71,8 +71,7 @@ jobs:
       with:
         push: true
         context: .
-        repository: ${{ env.REPO }}
-        tags: "${{ env.REPO }}/${{ env.REPO }}:${{ github.sha }}"
+        tags: "${{ env.USER }}/${{ env.REPO }}:${{ github.sha }}"
         #tags: user/app:latest
         #tags: "${{ env.REPO }}:${{ github.sha }}"
         
